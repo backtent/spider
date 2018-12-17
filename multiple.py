@@ -60,21 +60,24 @@ if __name__ == "__main__":
         else:
             print("输入的必须是1以上的数字啊~")
 
-    
-    one = total//tnum #每个线程的开始游标
-    tlist = []
-    for i in range(tnum):
-        cfg = cfgs.copy()
-        cfg["offset"] = one * i
-        #print(cfgs)
-        t = Thread(target=runcore, args=("#t"+str(i), conn, cfg))
-        tlist.append(t)
-        t.start()
-        #print("\n" + t.getName())#获取线程名
-        
-    for i in tlist:
-        i.join()#阻塞主线程，当前执行完再执行下一步
-
+    if tnum == 1:
+        #单线程
+        runcore("ONETHREAD", conn, cfgs)
+    else:
+        #多线程
+        one = total//tnum #每个线程的开始游标
+        tlist = []
+        for i in range(tnum):
+            cfg = cfgs.copy()
+            cfg["offset"] = one * i
+            #print(cfgs)
+            t = Thread(target=runcore, args=("#t"+str(i), conn, cfg))
+            tlist.append(t)
+            t.start()
+            #print("\n" + t.getName())#获取线程名
+            
+        for i in tlist:
+            i.join()#阻塞主线程，当前执行完再执行下一步
 
     
     print("allDownloaded")
