@@ -18,11 +18,11 @@ database：数据库名
 hostport：数据库端口
 
 cfgs配置参数：
-table：表名
-column：字段名，可多个
-offset：开始游标（当输入的线程数大于1则该项无效，大于1表示游标由线程数自动分配）
-vmode：控制台显示模式，可选为full/standard/simple
-limit：每次从数据库取多少条记录（内存大可设大，内存小可设小）
-sleep：每次处理完limit条记录后休息多少秒
+1.table：表名
+2.column：字段名，可多个
+3.offset：开始游标（当输入的线程数大于1则该项无效，大于1表示游标由线程数自动分配）
+4.vmode：控制台显示模式，可选为full/standard/simple
+5.limit：每次从数据库取多少条记录（内存大可设大，内存小可设小）
+6.sleep：每次处理完limit条记录后休息多少秒
 
 
