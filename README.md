@@ -21,7 +21,7 @@
 ----
 # conn配置参数：
 * `hostname`：数据库地址
-* username：用户名
+* `username`：用户名
 * password：密码
 * database：数据库名
 * hostport：数据库端口
